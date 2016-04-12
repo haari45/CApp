@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{601BDCD7-3D5C-4849-A521-45DF5E8B75C5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CApp.DBAccess</RootNamespace>
+    <AssemblyName>CApp.DBAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CAPPContext.cs" />
+    <Compile Include="CAPPModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CAPPModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CAPPModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CAPPModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CAPPModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Certification.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmailNotification.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmailStatu.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorReport.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EventTrace.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Exam.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeoLocation.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Group.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Language.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MobileNotification.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PostComment.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PostLike.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PostType.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Question.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionOption.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionType.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Setting.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Skill.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserChat.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserExam.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserFile.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserGroup.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserLanguage.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserLocation.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserPost.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserRole.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserSetting.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserSkill.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserSocialLink.cs">
+      <DependentUpon>CAPPModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CAPP_DB_SCRIPTS\Tables\Certification.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\EmailStatus.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\MobileNotification.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\UserSetting.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\ErrorReport.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\EventTrace.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\EmailNotification.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\Setting.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\Language.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\UserLanguage.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\UserFile.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\UserSocialLink.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\Skill.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\UserSkill.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\UserPost.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\PostComment.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\PostLike.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\PostType.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\UserLocation.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\GeoLocation.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\QuestionOption.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\QuestionType.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\Question.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\UserExam.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\Exam.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\UserChat.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\UserGroups.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\Group.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\UserRole.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\Role.sql" />
+    <Content Include="CAPP_DB_SCRIPTS\Tables\User.sql" />
+    <Content Include="CAPP_MAIN.mdf" />
+    <Content Include="CAPP_MAIN_log.ldf">
+      <DependentUpon>CAPP_MAIN.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="CAPPModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CAPPModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="CAPPModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CAPPModel.edmx</DependentUpon>
+      <LastGenOutput>CAPPModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="CAPPModel.edmx.diagram">
+      <DependentUpon>CAPPModel.edmx</DependentUpon>
+    </None>
+    <None Include="CAPPModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CAPPModel.edmx</DependentUpon>
+      <LastGenOutput>CAPPModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CAPP_DB_SCRIPTS\StoredProcedures\" />
+    <Folder Include="CAPP_DB_SCRIPTS\Views\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

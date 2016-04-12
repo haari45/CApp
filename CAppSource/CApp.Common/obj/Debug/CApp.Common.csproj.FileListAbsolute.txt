@@ -1,0 +1,5 @@
+C:\Users\v-hapatr\Documents\Visual Studio 2012\Projects\CAppSource\CApp.Common\bin\Debug\CApp.Common.dll
+C:\Users\v-hapatr\Documents\Visual Studio 2012\Projects\CAppSource\CApp.Common\bin\Debug\CApp.Common.pdb
+C:\Users\v-hapatr\Documents\Visual Studio 2012\Projects\CAppSource\CApp.Common\obj\Debug\CApp.Common.csprojResolveAssemblyReference.cache
+C:\Users\v-hapatr\Documents\Visual Studio 2012\Projects\CAppSource\CApp.Common\obj\Debug\CApp.Common.dll
+C:\Users\v-hapatr\Documents\Visual Studio 2012\Projects\CAppSource\CApp.Common\obj\Debug\CApp.Common.pdb

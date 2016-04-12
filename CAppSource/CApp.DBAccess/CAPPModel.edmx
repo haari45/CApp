@@ -1,0 +1,1342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CAPP_MAINModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="CAPP_MAINModelStoreContainer">
+          <EntitySet Name="Certification" EntityType="CAPP_MAINModel.Store.Certification" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmailNotification" EntityType="CAPP_MAINModel.Store.EmailNotification" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmailStatus" EntityType="CAPP_MAINModel.Store.EmailStatus" store:Type="Tables" store:Schema="dbo" store:Name="EmailStatus">
+            <DefiningQuery>SELECT 
+      [EmailStatus].[EmailStatusID] AS [EmailStatusID], 
+      [EmailStatus].[EmailStatus] AS [EmailStatus]
+      FROM [dbo].[EmailStatus] AS [EmailStatus]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ErrorReport" EntityType="CAPP_MAINModel.Store.ErrorReport" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EventTrace" EntityType="CAPP_MAINModel.Store.EventTrace" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Exam" EntityType="CAPP_MAINModel.Store.Exam" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GeoLocation" EntityType="CAPP_MAINModel.Store.GeoLocation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Group" EntityType="CAPP_MAINModel.Store.Group" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Language" EntityType="CAPP_MAINModel.Store.Language" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MobileNotification" EntityType="CAPP_MAINModel.Store.MobileNotification" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PostComment" EntityType="CAPP_MAINModel.Store.PostComment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PostLike" EntityType="CAPP_MAINModel.Store.PostLike" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PostType" EntityType="CAPP_MAINModel.Store.PostType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Question" EntityType="CAPP_MAINModel.Store.Question" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="QuestionOption" EntityType="CAPP_MAINModel.Store.QuestionOption" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="QuestionType" EntityType="CAPP_MAINModel.Store.QuestionType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Setting" EntityType="CAPP_MAINModel.Store.Setting" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Skill" EntityType="CAPP_MAINModel.Store.Skill" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="CAPP_MAINModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserChat" EntityType="CAPP_MAINModel.Store.UserChat" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserExam" EntityType="CAPP_MAINModel.Store.UserExam" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserFile" EntityType="CAPP_MAINModel.Store.UserFile" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserGroup" EntityType="CAPP_MAINModel.Store.UserGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserLanguage" EntityType="CAPP_MAINModel.Store.UserLanguage" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserLocation" EntityType="CAPP_MAINModel.Store.UserLocation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserPost" EntityType="CAPP_MAINModel.Store.UserPost" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserRole" EntityType="CAPP_MAINModel.Store.UserRole" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserSetting" EntityType="CAPP_MAINModel.Store.UserSetting" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserSkill" EntityType="CAPP_MAINModel.Store.UserSkill" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserSocialLink" EntityType="CAPP_MAINModel.Store.UserSocialLink" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Certification">
+          <Key>
+            <PropertyRef Name="CertificationID" />
+          </Key>
+          <Property Name="CertificationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CertificationName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SkillID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AttachmentFileID" Type="uniqueidentifier" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmailNotification">
+          <Key>
+            <PropertyRef Name="EmailNotificationID" />
+          </Key>
+          <Property Name="EmailNotificationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EmailBodyPlain" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EmailBodyHTML" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EmailSubjectHTML" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EmailSubjectPlain" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EmailStatus" Type="int" Nullable="false" />
+          <Property Name="From" Type="nvarchar" Nullable="false" MaxLength="300" />
+          <Property Name="TO" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CC" Type="nvarchar(max)" />
+          <Property Name="BCC" Type="nvarchar(max)" />
+          <Property Name="FailureMessage" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'C:\USERS\V-HAPATR\DOCUMENTS\VISUAL STUDIO 2012\PROJECTS\CAPPSOURCE\CAPP.DBACCESS\CAPP_MAIN.MDF.dbo.EmailStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="EmailStatus">
+          <Key>
+            <PropertyRef Name="EmailStatusID" />
+            <PropertyRef Name="EmailStatus" />
+          </Key>
+          <Property Name="EmailStatusID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EmailStatus" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ErrorReport">
+          <Key>
+            <PropertyRef Name="ErrorReportID" />
+          </Key>
+          <Property Name="ErrorReportID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ErrorSource" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IPAddress" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RequestData" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="StackTrace" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ErrorCode" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventTrace">
+          <Key>
+            <PropertyRef Name="EventTraceID" />
+          </Key>
+          <Property Name="EventTraceID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TraceSource" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="LogText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Exam">
+          <Key>
+            <PropertyRef Name="ExamID" />
+          </Key>
+          <Property Name="ExamID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ExamName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="CertificationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ExamDuration" Type="smallint" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GeoLocation">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LocationName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="LocationCode" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="GroupID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="GroupOwnerID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="LanguageID" />
+          </Key>
+          <Property Name="LanguageID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LanguageName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="LanguageShortCode" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MobileNotification">
+          <Key>
+            <PropertyRef Name="MobileNotificationID" />
+          </Key>
+          <Property Name="MobileNotificationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MessageText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostComment">
+          <Key>
+            <PropertyRef Name="PostCommentID" />
+          </Key>
+          <Property Name="PostCommentID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="content" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="PostID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CommentedUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AttachmentFileID" Type="uniqueidentifier" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostLike">
+          <Key>
+            <PropertyRef Name="PostLikeID" />
+          </Key>
+          <Property Name="PostLikeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PostID" Type="uniqueidentifier" />
+          <Property Name="PostCommentID" Type="uniqueidentifier" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostType">
+          <Key>
+            <PropertyRef Name="PostTypeID" />
+          </Key>
+          <Property Name="PostTypeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TypeName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="MimeType" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="QuestionText" Type="nvarchar" Nullable="false" MaxLength="400" />
+          <Property Name="QuestionTypeID" Type="smallint" Nullable="false" />
+          <Property Name="ExamID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QuestionOption">
+          <Key>
+            <PropertyRef Name="QuestionOptionID" />
+          </Key>
+          <Property Name="QuestionOptionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OptionName" Type="nvarchar" Nullable="false" MaxLength="400" />
+          <Property Name="IsCorrectAnswer" Type="bit" Nullable="false" />
+          <Property Name="QuestionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QuestionType">
+          <Key>
+            <PropertyRef Name="QuestionTypeID" />
+          </Key>
+          <Property Name="QuestionTypeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="InputType" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="SettingID" />
+          </Key>
+          <Property Name="SettingID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SettingName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="SkillID" />
+          </Key>
+          <Property Name="SkillID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SkillName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="SkillDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SkillDemand" Type="smallint" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="IsEnabled" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserChat">
+          <Key>
+            <PropertyRef Name="ChatID" />
+          </Key>
+          <Property Name="ChatID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FromUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ToUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="FileShareID" Type="uniqueidentifier" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserExam">
+          <Key>
+            <PropertyRef Name="UserExamID" />
+          </Key>
+          <Property Name="UserExamID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ExamID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DurationWritten" Type="smallint" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserFile">
+          <Key>
+            <PropertyRef Name="UserFileID" />
+          </Key>
+          <Property Name="UserFileID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="FilePath" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserGroup">
+          <Key>
+            <PropertyRef Name="UserGroupID" />
+          </Key>
+          <Property Name="UserGroupID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GroupID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsAdmin" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserLanguage">
+          <Key>
+            <PropertyRef Name="UserLanguageID" />
+          </Key>
+          <Property Name="UserLanguageID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LanguageID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsPrefferedLanguage" Type="bit" Nullable="false" />
+          <Property Name="IsSpokenLanguage" Type="bit" Nullable="false" />
+          <Property Name="IsReadLanguage" Type="bit" Nullable="false" />
+          <Property Name="IsWrittenLanguage" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserLocation">
+          <Key>
+            <PropertyRef Name="UserLocationID" />
+          </Key>
+          <Property Name="UserLocationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LocationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LatitudePos" Type="float" Nullable="false" />
+          <Property Name="LongitudePos" Type="float" Nullable="false" />
+          <Property Name="IsCurrentLocation" Type="bit" Nullable="false" />
+          <Property Name="LastUpdateDateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserPost">
+          <Key>
+            <PropertyRef Name="UserPostID" />
+          </Key>
+          <Property Name="UserPostID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PostSubject" Type="nvarchar" Nullable="false" MaxLength="300" />
+          <Property Name="PostContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserFileID" Type="uniqueidentifier" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsTrustedPost" Type="bit" Nullable="false" />
+          <Property Name="PostTypeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="UserRoleID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserSetting">
+          <Key>
+            <PropertyRef Name="UserSettingID" />
+          </Key>
+          <Property Name="UserSettingID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SettingID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsEnabled" Type="bit" />
+          <Property Name="IntValue" Type="int" />
+          <Property Name="StringValue" Type="nvarchar(max)" />
+          <Property Name="MinRange" Type="int" Nullable="false" />
+          <Property Name="MaxRange" Type="bigint" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserSkill">
+          <Key>
+            <PropertyRef Name="UserSkillID" />
+          </Key>
+          <Property Name="UserSkillID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SkillId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsPrimary" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserSocialLink">
+          <Key>
+            <PropertyRef Name="UserSocialLinkID" />
+          </Key>
+          <Property Name="UserSocialLinkID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LinkDetail" Type="nvarchar(max)" />
+          <Property Name="LinkSource" Type="nvarchar" MaxLength="200" />
+          <Property Name="LinkName" Type="nvarchar" MaxLength="200" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CAPP_MAINModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CAPP_MAINEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Certifications" EntityType="CAPP_MAINModel.Certification" />
+          <EntitySet Name="EmailNotifications" EntityType="CAPP_MAINModel.EmailNotification" />
+          <EntitySet Name="EmailStatus" EntityType="CAPP_MAINModel.EmailStatu" />
+          <EntitySet Name="ErrorReports" EntityType="CAPP_MAINModel.ErrorReport" />
+          <EntitySet Name="EventTraces" EntityType="CAPP_MAINModel.EventTrace" />
+          <EntitySet Name="Exams" EntityType="CAPP_MAINModel.Exam" />
+          <EntitySet Name="GeoLocations" EntityType="CAPP_MAINModel.GeoLocation" />
+          <EntitySet Name="Groups" EntityType="CAPP_MAINModel.Group" />
+          <EntitySet Name="Languages" EntityType="CAPP_MAINModel.Language" />
+          <EntitySet Name="MobileNotifications" EntityType="CAPP_MAINModel.MobileNotification" />
+          <EntitySet Name="PostComments" EntityType="CAPP_MAINModel.PostComment" />
+          <EntitySet Name="PostLikes" EntityType="CAPP_MAINModel.PostLike" />
+          <EntitySet Name="PostTypes" EntityType="CAPP_MAINModel.PostType" />
+          <EntitySet Name="Questions" EntityType="CAPP_MAINModel.Question" />
+          <EntitySet Name="QuestionOptions" EntityType="CAPP_MAINModel.QuestionOption" />
+          <EntitySet Name="QuestionTypes" EntityType="CAPP_MAINModel.QuestionType" />
+          <EntitySet Name="Settings" EntityType="CAPP_MAINModel.Setting" />
+          <EntitySet Name="Skills" EntityType="CAPP_MAINModel.Skill" />
+          <EntitySet Name="Users" EntityType="CAPP_MAINModel.User" />
+          <EntitySet Name="UserChats" EntityType="CAPP_MAINModel.UserChat" />
+          <EntitySet Name="UserExams" EntityType="CAPP_MAINModel.UserExam" />
+          <EntitySet Name="UserFiles" EntityType="CAPP_MAINModel.UserFile" />
+          <EntitySet Name="UserGroups" EntityType="CAPP_MAINModel.UserGroup" />
+          <EntitySet Name="UserLanguages" EntityType="CAPP_MAINModel.UserLanguage" />
+          <EntitySet Name="UserLocations" EntityType="CAPP_MAINModel.UserLocation" />
+          <EntitySet Name="UserPosts" EntityType="CAPP_MAINModel.UserPost" />
+          <EntitySet Name="UserRoles" EntityType="CAPP_MAINModel.UserRole" />
+          <EntitySet Name="UserSettings" EntityType="CAPP_MAINModel.UserSetting" />
+          <EntitySet Name="UserSkills" EntityType="CAPP_MAINModel.UserSkill" />
+          <EntitySet Name="UserSocialLinks" EntityType="CAPP_MAINModel.UserSocialLink" />
+        </EntityContainer>
+        <EntityType Name="Certification">
+          <Key>
+            <PropertyRef Name="CertificationID" />
+          </Key>
+          <Property Name="CertificationID" Type="Guid" Nullable="false" />
+          <Property Name="CertificationName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SkillID" Type="Guid" Nullable="false" />
+          <Property Name="AttachmentFileID" Type="Guid" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="EmailNotification">
+          <Key>
+            <PropertyRef Name="EmailNotificationID" />
+          </Key>
+          <Property Name="EmailNotificationID" Type="Guid" Nullable="false" />
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="EmailBodyPlain" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="EmailBodyHTML" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="EmailSubjectHTML" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="EmailSubjectPlain" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="EmailStatus" Type="Int32" Nullable="false" />
+          <Property Name="From" Type="String" Nullable="false" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="TO" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CC" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="BCC" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="FailureMessage" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="EmailStatu">
+          <Key>
+            <PropertyRef Name="EmailStatusID" />
+            <PropertyRef Name="EmailStatus" />
+          </Key>
+          <Property Name="EmailStatusID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="EmailStatus" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ErrorReport">
+          <Key>
+            <PropertyRef Name="ErrorReportID" />
+          </Key>
+          <Property Name="ErrorReportID" Type="Guid" Nullable="false" />
+          <Property Name="ErrorSource" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="IPAddress" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="RequestData" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="StackTrace" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ErrorCode" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="EventTrace">
+          <Key>
+            <PropertyRef Name="EventTraceID" />
+          </Key>
+          <Property Name="EventTraceID" Type="Guid" Nullable="false" />
+          <Property Name="TraceSource" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="LogText" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Exam">
+          <Key>
+            <PropertyRef Name="ExamID" />
+          </Key>
+          <Property Name="ExamID" Type="Guid" Nullable="false" />
+          <Property Name="ExamName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="CertificationID" Type="Guid" Nullable="false" />
+          <Property Name="ExamDuration" Type="Int16" Nullable="false" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="GeoLocation">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="Guid" Nullable="false" />
+          <Property Name="LocationName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="LocationCode" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="GroupID" Type="Guid" Nullable="false" />
+          <Property Name="GroupName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="GroupOwnerID" Type="Guid" Nullable="false" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="LanguageID" />
+          </Key>
+          <Property Name="LanguageID" Type="Guid" Nullable="false" />
+          <Property Name="LanguageName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="LanguageShortCode" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="MobileNotification">
+          <Key>
+            <PropertyRef Name="MobileNotificationID" />
+          </Key>
+          <Property Name="MobileNotificationID" Type="Guid" Nullable="false" />
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="MessageText" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="PostComment">
+          <Key>
+            <PropertyRef Name="PostCommentID" />
+          </Key>
+          <Property Name="PostCommentID" Type="Guid" Nullable="false" />
+          <Property Name="content" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="PostID" Type="Guid" Nullable="false" />
+          <Property Name="CommentedUserID" Type="Guid" Nullable="false" />
+          <Property Name="AttachmentFileID" Type="Guid" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="PostLike">
+          <Key>
+            <PropertyRef Name="PostLikeID" />
+          </Key>
+          <Property Name="PostLikeID" Type="Guid" Nullable="false" />
+          <Property Name="PostID" Type="Guid" />
+          <Property Name="PostCommentID" Type="Guid" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="PostType">
+          <Key>
+            <PropertyRef Name="PostTypeID" />
+          </Key>
+          <Property Name="PostTypeID" Type="Guid" Nullable="false" />
+          <Property Name="TypeName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="MimeType" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="Guid" Nullable="false" />
+          <Property Name="QuestionText" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+          <Property Name="QuestionTypeID" Type="Int16" Nullable="false" />
+          <Property Name="ExamID" Type="Guid" Nullable="false" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="QuestionOption">
+          <Key>
+            <PropertyRef Name="QuestionOptionID" />
+          </Key>
+          <Property Name="QuestionOptionID" Type="Guid" Nullable="false" />
+          <Property Name="OptionName" Type="String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+          <Property Name="IsCorrectAnswer" Type="Boolean" Nullable="false" />
+          <Property Name="QuestionID" Type="Guid" Nullable="false" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="QuestionType">
+          <Key>
+            <PropertyRef Name="QuestionTypeID" />
+          </Key>
+          <Property Name="QuestionTypeID" Type="Guid" Nullable="false" />
+          <Property Name="InputType" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="SettingID" />
+          </Key>
+          <Property Name="SettingID" Type="Guid" Nullable="false" />
+          <Property Name="SettingName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="SkillID" />
+          </Key>
+          <Property Name="SkillID" Type="Guid" Nullable="false" />
+          <Property Name="SkillName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="SkillDescription" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SkillDemand" Type="Int16" Nullable="false" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Guid" Nullable="false" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="IsEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserChat">
+          <Key>
+            <PropertyRef Name="ChatID" />
+          </Key>
+          <Property Name="ChatID" Type="Guid" Nullable="false" />
+          <Property Name="FromUserID" Type="Guid" Nullable="false" />
+          <Property Name="ToUserID" Type="Guid" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="FileShareID" Type="Guid" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserExam">
+          <Key>
+            <PropertyRef Name="UserExamID" />
+          </Key>
+          <Property Name="UserExamID" Type="Guid" Nullable="false" />
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="ExamID" Type="Guid" Nullable="false" />
+          <Property Name="DurationWritten" Type="Int16" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserFile">
+          <Key>
+            <PropertyRef Name="UserFileID" />
+          </Key>
+          <Property Name="UserFileID" Type="Guid" Nullable="false" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="FilePath" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserGroup">
+          <Key>
+            <PropertyRef Name="UserGroupID" />
+          </Key>
+          <Property Name="UserGroupID" Type="Guid" Nullable="false" />
+          <Property Name="GroupID" Type="Guid" Nullable="false" />
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserLanguage">
+          <Key>
+            <PropertyRef Name="UserLanguageID" />
+          </Key>
+          <Property Name="UserLanguageID" Type="Guid" Nullable="false" />
+          <Property Name="LanguageID" Type="Guid" Nullable="false" />
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="IsPrefferedLanguage" Type="Boolean" Nullable="false" />
+          <Property Name="IsSpokenLanguage" Type="Boolean" Nullable="false" />
+          <Property Name="IsReadLanguage" Type="Boolean" Nullable="false" />
+          <Property Name="IsWrittenLanguage" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserLocation">
+          <Key>
+            <PropertyRef Name="UserLocationID" />
+          </Key>
+          <Property Name="UserLocationID" Type="Guid" Nullable="false" />
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="LocationID" Type="Guid" Nullable="false" />
+          <Property Name="LatitudePos" Type="Double" Nullable="false" />
+          <Property Name="LongitudePos" Type="Double" Nullable="false" />
+          <Property Name="IsCurrentLocation" Type="Boolean" Nullable="false" />
+          <Property Name="LastUpdateDateTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserPost">
+          <Key>
+            <PropertyRef Name="UserPostID" />
+          </Key>
+          <Property Name="UserPostID" Type="Guid" Nullable="false" />
+          <Property Name="PostSubject" Type="String" Nullable="false" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="PostContent" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="UserFileID" Type="Guid" />
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="IsTrustedPost" Type="Boolean" Nullable="false" />
+          <Property Name="PostTypeID" Type="Guid" Nullable="false" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="UserRoleID" Type="Guid" Nullable="false" />
+          <Property Name="RoleID" Type="Guid" Nullable="false" />
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserSetting">
+          <Key>
+            <PropertyRef Name="UserSettingID" />
+          </Key>
+          <Property Name="UserSettingID" Type="Guid" Nullable="false" />
+          <Property Name="SettingID" Type="Guid" Nullable="false" />
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="IsEnabled" Type="Boolean" />
+          <Property Name="IntValue" Type="Int32" />
+          <Property Name="StringValue" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="MinRange" Type="Int32" Nullable="false" />
+          <Property Name="MaxRange" Type="Int64" Nullable="false" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserSkill">
+          <Key>
+            <PropertyRef Name="UserSkillID" />
+          </Key>
+          <Property Name="UserSkillID" Type="Guid" Nullable="false" />
+          <Property Name="SkillId" Type="Guid" Nullable="false" />
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="IsPrimary" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserSocialLink">
+          <Key>
+            <PropertyRef Name="UserSocialLinkID" />
+          </Key>
+          <Property Name="UserSocialLinkID" Type="Guid" Nullable="false" />
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="LinkDetail" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="LinkSource" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="LinkName" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CAPP_MAINModelStoreContainer" CdmEntityContainer="CAPP_MAINEntities">
+          <EntitySetMapping Name="Certifications">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.Certification">
+              <MappingFragment StoreEntitySet="Certification">
+                <ScalarProperty Name="CertificationID" ColumnName="CertificationID" />
+                <ScalarProperty Name="CertificationName" ColumnName="CertificationName" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="SkillID" ColumnName="SkillID" />
+                <ScalarProperty Name="AttachmentFileID" ColumnName="AttachmentFileID" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailNotifications">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.EmailNotification">
+              <MappingFragment StoreEntitySet="EmailNotification">
+                <ScalarProperty Name="EmailNotificationID" ColumnName="EmailNotificationID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="EmailBodyPlain" ColumnName="EmailBodyPlain" />
+                <ScalarProperty Name="EmailBodyHTML" ColumnName="EmailBodyHTML" />
+                <ScalarProperty Name="EmailSubjectHTML" ColumnName="EmailSubjectHTML" />
+                <ScalarProperty Name="EmailSubjectPlain" ColumnName="EmailSubjectPlain" />
+                <ScalarProperty Name="EmailStatus" ColumnName="EmailStatus" />
+                <ScalarProperty Name="From" ColumnName="From" />
+                <ScalarProperty Name="TO" ColumnName="TO" />
+                <ScalarProperty Name="CC" ColumnName="CC" />
+                <ScalarProperty Name="BCC" ColumnName="BCC" />
+                <ScalarProperty Name="FailureMessage" ColumnName="FailureMessage" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailStatus">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.EmailStatu">
+              <MappingFragment StoreEntitySet="EmailStatus">
+                <ScalarProperty Name="EmailStatusID" ColumnName="EmailStatusID" />
+                <ScalarProperty Name="EmailStatus" ColumnName="EmailStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ErrorReports">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.ErrorReport">
+              <MappingFragment StoreEntitySet="ErrorReport">
+                <ScalarProperty Name="ErrorReportID" ColumnName="ErrorReportID" />
+                <ScalarProperty Name="ErrorSource" ColumnName="ErrorSource" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="RequestData" ColumnName="RequestData" />
+                <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+                <ScalarProperty Name="ErrorCode" ColumnName="ErrorCode" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventTraces">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.EventTrace">
+              <MappingFragment StoreEntitySet="EventTrace">
+                <ScalarProperty Name="EventTraceID" ColumnName="EventTraceID" />
+                <ScalarProperty Name="TraceSource" ColumnName="TraceSource" />
+                <ScalarProperty Name="LogText" ColumnName="LogText" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Exams">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.Exam">
+              <MappingFragment StoreEntitySet="Exam">
+                <ScalarProperty Name="ExamID" ColumnName="ExamID" />
+                <ScalarProperty Name="ExamName" ColumnName="ExamName" />
+                <ScalarProperty Name="CertificationID" ColumnName="CertificationID" />
+                <ScalarProperty Name="ExamDuration" ColumnName="ExamDuration" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GeoLocations">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.GeoLocation">
+              <MappingFragment StoreEntitySet="GeoLocation">
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+                <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.Group">
+              <MappingFragment StoreEntitySet="Group">
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="GroupOwnerID" ColumnName="GroupOwnerID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.Language">
+              <MappingFragment StoreEntitySet="Language">
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+                <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+                <ScalarProperty Name="LanguageShortCode" ColumnName="LanguageShortCode" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MobileNotifications">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.MobileNotification">
+              <MappingFragment StoreEntitySet="MobileNotification">
+                <ScalarProperty Name="MobileNotificationID" ColumnName="MobileNotificationID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostComments">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.PostComment">
+              <MappingFragment StoreEntitySet="PostComment">
+                <ScalarProperty Name="PostCommentID" ColumnName="PostCommentID" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="CommentedUserID" ColumnName="CommentedUserID" />
+                <ScalarProperty Name="AttachmentFileID" ColumnName="AttachmentFileID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostLikes">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.PostLike">
+              <MappingFragment StoreEntitySet="PostLike">
+                <ScalarProperty Name="PostLikeID" ColumnName="PostLikeID" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="PostCommentID" ColumnName="PostCommentID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostTypes">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.PostType">
+              <MappingFragment StoreEntitySet="PostType">
+                <ScalarProperty Name="PostTypeID" ColumnName="PostTypeID" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="MimeType" ColumnName="MimeType" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questions">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.Question">
+              <MappingFragment StoreEntitySet="Question">
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+                <ScalarProperty Name="QuestionTypeID" ColumnName="QuestionTypeID" />
+                <ScalarProperty Name="ExamID" ColumnName="ExamID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuestionOptions">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.QuestionOption">
+              <MappingFragment StoreEntitySet="QuestionOption">
+                <ScalarProperty Name="QuestionOptionID" ColumnName="QuestionOptionID" />
+                <ScalarProperty Name="OptionName" ColumnName="OptionName" />
+                <ScalarProperty Name="IsCorrectAnswer" ColumnName="IsCorrectAnswer" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuestionTypes">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.QuestionType">
+              <MappingFragment StoreEntitySet="QuestionType">
+                <ScalarProperty Name="QuestionTypeID" ColumnName="QuestionTypeID" />
+                <ScalarProperty Name="InputType" ColumnName="InputType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Settings">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.Setting">
+              <MappingFragment StoreEntitySet="Setting">
+                <ScalarProperty Name="SettingID" ColumnName="SettingID" />
+                <ScalarProperty Name="SettingName" ColumnName="SettingName" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Skills">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.Skill">
+              <MappingFragment StoreEntitySet="Skill">
+                <ScalarProperty Name="SkillID" ColumnName="SkillID" />
+                <ScalarProperty Name="SkillName" ColumnName="SkillName" />
+                <ScalarProperty Name="SkillDescription" ColumnName="SkillDescription" />
+                <ScalarProperty Name="SkillDemand" ColumnName="SkillDemand" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserChats">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.UserChat">
+              <MappingFragment StoreEntitySet="UserChat">
+                <ScalarProperty Name="ChatID" ColumnName="ChatID" />
+                <ScalarProperty Name="FromUserID" ColumnName="FromUserID" />
+                <ScalarProperty Name="ToUserID" ColumnName="ToUserID" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="FileShareID" ColumnName="FileShareID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserExams">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.UserExam">
+              <MappingFragment StoreEntitySet="UserExam">
+                <ScalarProperty Name="UserExamID" ColumnName="UserExamID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ExamID" ColumnName="ExamID" />
+                <ScalarProperty Name="DurationWritten" ColumnName="DurationWritten" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserFiles">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.UserFile">
+              <MappingFragment StoreEntitySet="UserFile">
+                <ScalarProperty Name="UserFileID" ColumnName="UserFileID" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserGroups">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.UserGroup">
+              <MappingFragment StoreEntitySet="UserGroup">
+                <ScalarProperty Name="UserGroupID" ColumnName="UserGroupID" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLanguages">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.UserLanguage">
+              <MappingFragment StoreEntitySet="UserLanguage">
+                <ScalarProperty Name="UserLanguageID" ColumnName="UserLanguageID" />
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="IsPrefferedLanguage" ColumnName="IsPrefferedLanguage" />
+                <ScalarProperty Name="IsSpokenLanguage" ColumnName="IsSpokenLanguage" />
+                <ScalarProperty Name="IsReadLanguage" ColumnName="IsReadLanguage" />
+                <ScalarProperty Name="IsWrittenLanguage" ColumnName="IsWrittenLanguage" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLocations">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.UserLocation">
+              <MappingFragment StoreEntitySet="UserLocation">
+                <ScalarProperty Name="UserLocationID" ColumnName="UserLocationID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="LatitudePos" ColumnName="LatitudePos" />
+                <ScalarProperty Name="LongitudePos" ColumnName="LongitudePos" />
+                <ScalarProperty Name="IsCurrentLocation" ColumnName="IsCurrentLocation" />
+                <ScalarProperty Name="LastUpdateDateTime" ColumnName="LastUpdateDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserPosts">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.UserPost">
+              <MappingFragment StoreEntitySet="UserPost">
+                <ScalarProperty Name="UserPostID" ColumnName="UserPostID" />
+                <ScalarProperty Name="PostSubject" ColumnName="PostSubject" />
+                <ScalarProperty Name="PostContent" ColumnName="PostContent" />
+                <ScalarProperty Name="UserFileID" ColumnName="UserFileID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="IsTrustedPost" ColumnName="IsTrustedPost" />
+                <ScalarProperty Name="PostTypeID" ColumnName="PostTypeID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserSettings">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.UserSetting">
+              <MappingFragment StoreEntitySet="UserSetting">
+                <ScalarProperty Name="UserSettingID" ColumnName="UserSettingID" />
+                <ScalarProperty Name="SettingID" ColumnName="SettingID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="IntValue" ColumnName="IntValue" />
+                <ScalarProperty Name="StringValue" ColumnName="StringValue" />
+                <ScalarProperty Name="MinRange" ColumnName="MinRange" />
+                <ScalarProperty Name="MaxRange" ColumnName="MaxRange" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserSkills">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.UserSkill">
+              <MappingFragment StoreEntitySet="UserSkill">
+                <ScalarProperty Name="UserSkillID" ColumnName="UserSkillID" />
+                <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="IsPrimary" ColumnName="IsPrimary" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserSocialLinks">
+            <EntityTypeMapping TypeName="CAPP_MAINModel.UserSocialLink">
+              <MappingFragment StoreEntitySet="UserSocialLink">
+                <ScalarProperty Name="UserSocialLinkID" ColumnName="UserSocialLinkID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="LinkDetail" ColumnName="LinkDetail" />
+                <ScalarProperty Name="LinkSource" ColumnName="LinkSource" />
+                <ScalarProperty Name="LinkName" ColumnName="LinkName" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

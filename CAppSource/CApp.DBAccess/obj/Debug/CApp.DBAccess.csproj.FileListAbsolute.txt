@@ -1,0 +1,4 @@
+C:\Users\v-hapatr\Documents\Visual Studio 2012\Projects\CAppSource\CApp.DBAccess\bin\Debug\CApp.DBAccess.dll
+C:\Users\v-hapatr\Documents\Visual Studio 2012\Projects\CAppSource\CApp.DBAccess\bin\Debug\CApp.DBAccess.pdb
+C:\Users\v-hapatr\Documents\Visual Studio 2012\Projects\CAppSource\CApp.DBAccess\obj\Debug\CApp.DBAccess.dll
+C:\Users\v-hapatr\Documents\Visual Studio 2012\Projects\CAppSource\CApp.DBAccess\obj\Debug\CApp.DBAccess.pdb

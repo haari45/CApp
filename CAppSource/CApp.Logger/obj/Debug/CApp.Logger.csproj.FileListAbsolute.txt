@@ -1,0 +1,5 @@
+C:\Users\v-hapatr\Documents\Visual Studio 2012\Projects\CAppSource\CApp.Logger\bin\Debug\CApp.Logger.dll
+C:\Users\v-hapatr\Documents\Visual Studio 2012\Projects\CAppSource\CApp.Logger\bin\Debug\CApp.Logger.pdb
+C:\Users\v-hapatr\Documents\Visual Studio 2012\Projects\CAppSource\CApp.Logger\obj\Debug\CApp.Logger.csprojResolveAssemblyReference.cache
+C:\Users\v-hapatr\Documents\Visual Studio 2012\Projects\CAppSource\CApp.Logger\obj\Debug\CApp.Logger.dll
+C:\Users\v-hapatr\Documents\Visual Studio 2012\Projects\CAppSource\CApp.Logger\obj\Debug\CApp.Logger.pdb
